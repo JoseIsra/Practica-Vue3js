@@ -1,0 +1,10 @@
+%flexRowStyle {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+%flexColumnStyle {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}

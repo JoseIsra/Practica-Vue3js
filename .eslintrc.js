@@ -20,6 +20,7 @@ module.exports = {
     'no-param-reassign': 0,
     'prefer-const':0,
     'prefer-default-export': 0,
+    'no-irregular-whitespace':0,
   },
   overrides: [
     {

@@ -1,11 +1,11 @@
-import Home from '../../src/views/Home.vue';
+import About from '../../src/views/About.vue';
 import { mount } from '@vue/test-utils';
 
 let wrapper:any;
 
 describe('Home.vue', () => {
   beforeEach(() => {
-      wrapper= mount(Home);
+      wrapper= mount(About);
   });
 
   it('Render component Home', () => {
