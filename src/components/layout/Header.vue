@@ -6,7 +6,7 @@
   </div>
   <div class="header__navigationOptions">
     <router-link to="/">Inicio</router-link>
-    <router-link :to="{ name: 'About' }">Ejercicio1</router-link>
+    <router-link :to="{ name: 'About' }">Tareas</router-link>
     <router-link :to="{ name: 'Game' }">Ejercicio2</router-link>
   </div>
   <div class="header__form">

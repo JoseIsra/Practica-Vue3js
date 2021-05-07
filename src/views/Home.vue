@@ -79,7 +79,7 @@ export default defineComponent({
       });
       result.value = data;
     };
-    let myTitle = computed(() => store.state.title);
+    let myTitle = computed(() => store.state.versatilTitle.title);
     // PARA REVISAR
     // NO SÉ QUÉ HICE 
     onMounted(() => search('character')); 

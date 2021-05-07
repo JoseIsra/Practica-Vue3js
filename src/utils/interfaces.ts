@@ -4,6 +4,7 @@ interface Itodo {
   userName: string,
   userTask: string,
   area: string,
+  done: boolean,
   priority: string,
 }
 

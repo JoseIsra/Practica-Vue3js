@@ -1,46 +1,12 @@
-import { InjectionKey } from 'vue';
-import { createStore, useStore as baseUseStore, Store } from 'vuex';
-import Itodo from '../utils/interfaces';
+import { createStore } from 'vuex';
+import todos from './modules/todos';
+import versatilTitle from './modules/versatilTitle';
 /* eslint-disable */
-export interface State {
-    title: string,
-    todos: Itodo[],
-  }
 
-export const key: InjectionKey<Store<State>> = Symbol();
 
-export const store = createStore<State>({
-  state: {
-    title: 'aaaa',
-    todos: [],
-  },
-  mutations: {
-    stablishTitle(state, payload) {
-      let name;
-      if (payload.newTitle === 'character') {
-        name = 'Personajes';
-      } else if (payload.newTitle === 'location') {
-        name = 'Lugares';
-      } else {
-        name = 'Episodios';
-      }
-      state.title = name;
-    },
-
-    addTodo(state, payload) {
-      state.todos.push(payload.newTodo);
-    },
-  },
-  actions: {
-    stablishAsync({ commit }, payload) {
-      commit('stablishTitle', payload);
-    },
-  },
+export const store = createStore({
   modules: {
+    todos,
+    versatilTitle,
   },
 });
-
-export function useStore() {
-  return baseUseStore(key);
-}
-
