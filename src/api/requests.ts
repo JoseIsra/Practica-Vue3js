@@ -1,3 +1,4 @@
+/* eslint-disable */
 import api from './apiconfig';
 
 const getData = async (term:string) => {

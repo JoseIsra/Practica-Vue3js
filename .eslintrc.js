@@ -18,9 +18,10 @@ module.exports = {
     'no-trailing-spaces': 0,
     'linebreak-style': 0,
     'no-param-reassign': 0,
-    'prefer-const':0,
+    'prefer-const': 0,
     'prefer-default-export': 0,
-    'no-irregular-whitespace':0,
+    'no-irregular-whitespace': 0,
+    'symbol-description': 0,
   },
   overrides: [
     {

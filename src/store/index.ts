@@ -1,8 +1,18 @@
-import { createStore } from 'vuex';
+import { InjectionKey } from 'vue';
+import { createStore, useStore as baseUseStore, Store } from 'vuex';
+import Itodo from '../utils/interfaces';
+/* eslint-disable */
+export interface State {
+    title: string,
+    todos: Itodo[],
+  }
 
-export default createStore({
+export const key: InjectionKey<Store<State>> = Symbol();
+
+export const store = createStore<State>({
   state: {
-    title: '',
+    title: 'aaaa',
+    todos: [],
   },
   mutations: {
     stablishTitle(state, payload) {
@@ -16,6 +26,10 @@ export default createStore({
       }
       state.title = name;
     },
+
+    addTodo(state, payload) {
+      state.todos.push(payload.newTodo);
+    },
   },
   actions: {
     stablishAsync({ commit }, payload) {
@@ -25,3 +39,8 @@ export default createStore({
   modules: {
   },
 });
+
+export function useStore() {
+  return baseUseStore(key);
+}
+

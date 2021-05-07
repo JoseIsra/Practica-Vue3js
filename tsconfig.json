@@ -33,7 +33,7 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
-  ],
+, "src/components/layout/Cards.vue"  ],
   "exclude": [
     "node_modules"
   ]

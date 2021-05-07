@@ -22,16 +22,19 @@
       <div class="m-container__leftSideContent">
         <ul>
           <li>
-            <button :class="{ 'isActive': myTitle === 'Personajes'}"
-              @click="search('character')">Personajes</button>
+            <button
+            :class="{'-isActive': myTitle === 'Personajes' }"
+            @click="search('character')">Personajes</button>
           </li>
           <li>
-            <button :class="{ 'isActive': myTitle === 'Lugares'}" 
-              @click="search('location')" >Lugares</button>
+            <button 
+            :class="{'-isActive': myTitle === 'Lugares' }"
+            @click="search('location')" >Lugares</button>
           </li>
           <li>
-            <button :class="{ 'isActive': myTitle === 'Episodios'}" 
-              @click="search('episode')">Episodios</button>
+            <button 
+            :class="{'-isActive': myTitle === 'Episodios' }"
+            @click="search('episode')">Episodios</button>
           </li>
         </ul>
       </div>
@@ -55,19 +58,19 @@
 </template>
 
 <script lang="ts">
-import { 
+import {
   ref, defineComponent, onMounted, computed, 
 } from 'vue';
-import { useStore } from 'vuex';
 import BlockCards from '@/components/BlockCards.vue';
+import { useStore } from 'vuex';
 import getData from '../api/requests';
 
 export default defineComponent({
   name: 'Home',
   components: { BlockCards },
   setup() {
-    const store = useStore();
     const result = ref(null);
+    const store = useStore();
     const search = async (term:string) => {
       const data = await getData(term);
       store.dispatch({
@@ -84,7 +87,6 @@ export default defineComponent({
       search,
       result,
       myTitle,
-      
     };
   },
 });
@@ -169,7 +171,7 @@ export default defineComponent({
           }
         }
       }
-      .isActive {
+      .-isActive {
         color:green;
         letter-spacing: 2px;
       }
@@ -179,7 +181,6 @@ export default defineComponent({
   .m-info {
     background: url('../assets/wave.svg');
     margin:2rem 0;
-    border:2px solid blue;
     @extend %flexRowStyle;
     justify-content:flex-start;
     align-items: center;

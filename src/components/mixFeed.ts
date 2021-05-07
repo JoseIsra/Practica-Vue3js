@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const helper = {
   methods: {
     completeCard(item:any) {
