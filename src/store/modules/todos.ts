@@ -19,9 +19,12 @@ const getters = {
 
 // mutations
 const mutations = {
-  addTodo(state:ItodoList, payload:any) {
-    state.todoList.push(payload.newTodo);
+  addTodo(state:ItodoList, newTodo:Itodo ) {
+    state.todoList.push(newTodo);
   },
+  deleteTodo(state:ItodoList, id:string) {
+    state.todoList = state.todoList.filter((todo) => todo.id !== id);
+  }
 };
 
 export default {

@@ -164,10 +164,7 @@ export default defineComponent({
         done: false,
         priority: selectedPriority.value,
       };
-      store.commit({
-        type: 'addTodo',
-        newTodo,
-      });
+      store.commit('addTodo', newTodo);
       userInput.userCode = '';
       userInput.name = '';
       userInput.task = '';
