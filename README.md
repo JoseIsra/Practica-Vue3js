@@ -1,29 +1,12 @@
-# vue3-emergency
+# Practica intensa de Vue3js
+### Proyecto 100% práctico para aprender a utilizar la mayoría de características de Vue3js para crear SPA.
+### Proyecto 100% práctico para hacer con Vue3 lo que aprendí con Reactjs
+### Ṕŕoyecto para demostrar que Vuejs es primo de Reactjs
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+* NOTAS: Este proyecto contiene
+- [x] Vuejs puro y duro
+- [x] Sass
+- [x] Vue router
+- [x] Typescript
+- [x] Unit testing con Jest
+- [x] Vuex

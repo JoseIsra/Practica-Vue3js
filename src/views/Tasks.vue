@@ -56,12 +56,12 @@
     </div>
 
     <div class="m-tasks__rightSide">
-      <TodoCards v-for="todo in tempTodos"
+      <todo-cards v-for="todo in tempTodos"
       v-borderCard="todo.priority"
       :key="todo.id" 
-      :todo="todo"
+      :todo="todo" 
       @deleteFromListTemp="deleteTempTodo"
-      @deleteTodo="deleteTodo"></TodoCards>
+      @deleteTodo="deleteTodo" />
     </div>
   </div>
 </template>

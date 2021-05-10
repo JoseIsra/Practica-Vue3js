@@ -21,7 +21,8 @@
     </div>
     <div class="m-todo__task">
       <label>Tarea asignada:</label>
-      <textarea disabled rows="8" :value="todo.userTask"></textarea>
+      <textarea rows="7" disabled :value="todo.userTask">
+      </textarea>
     </div>
     <button
     class="a-card__button"
@@ -44,7 +45,7 @@ export default defineComponent({
     padding:10px;
     width:325px;
     margin:5px;
-    height:350px;;
+    height:320px;;
     border-radius:10px;
     @extend %flexColumnStyle;
     &__header{
