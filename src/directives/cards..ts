@@ -23,7 +23,7 @@ export const borderCard = {
 export const titleColored = {
   mounted(el:ComponentPublicInstance<HTMLSpanElement>, binding:Ibinding):void {
     switch (binding.value) {
-      case 'Un chiste': el.style.color = 'green';
+      case 'Un chiste': el.style.color = '#2cb67d';
         break;
       case 'Normal': el.style.color = '#03a9f4';
         break;

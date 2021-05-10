@@ -32,7 +32,9 @@
           </p>
           <div class="m-cards__buttons">
             <div class="m-cards__buttons__leftSide">
-            <button class="-pressed"
+            <button 
+            @click="selectThisTodo(todo.id)"
+            class="-pressed"
             v-buttonStyle="todo.priority">
               Ver detalles
               </button>
@@ -54,40 +56,64 @@
     </div>
 
     <div class="m-tasks__rightSide">
-      se renderiza la tarea seleccionada
+      <TodoCards v-for="todo in tempTodos"
+      v-borderCard="todo.priority"
+      :key="todo.id" 
+      :todo="todo"
+      @deleteFromListTemp="deleteTempTodo"
+      @deleteTodo="deleteTodo"></TodoCards>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, ref } from 'vue';
+import { 
+  defineComponent, computed, ref, Ref,
+} from 'vue';
 import { useStore } from 'vuex';
+import Itodo from '../utils/interfaces';
 import { 
   borderCard, titleColored, borderCardContainer,
   buttonStyle,
-} from '../directives/index.';
+} from '../directives/cards.';
+import TodoCards from '../components/TodoCards.vue';
 // EL value cuandos se usa ref no hay que olvidarlo x.x
 
 export default defineComponent({
   name: 'Tasks',
   props: ['name'],
+  components: { TodoCards },
   directives: { 
     borderCard, titleColored, borderCardContainer, buttonStyle,
   },  
   setup(props) {
     const store = useStore();
     let namePage = ref(props.name);
+    let tempTodos:Ref<Itodo[]> = ref([]);
     const todosByPriorityOnPage = computed(
       () => store.getters.todosByPriority(namePage.value),
     );
+    const deleteTempTodo = (id:string) => {
+      tempTodos.value = tempTodos.value.filter((todo) => todo.id !== id);
+    };
+
     const deleteTodo = (id:string) => {
       store.commit('deleteTodo', id);
+      if (tempTodos.value.length > 0) {
+        deleteTempTodo(id);
+      }
+    };
+    const selectThisTodo = (id:string) => {
+      tempTodos.value.push(todosByPriorityOnPage.value.find((todo:Itodo) => todo.id === id));
     };
 
     return {
       todosByPriorityOnPage,
       namePage,
       deleteTodo,
+      selectThisTodo,
+      tempTodos,
+      deleteTempTodo,
     };
   },
 });
@@ -108,6 +134,7 @@ export default defineComponent({
       &__content {
         height: 75vh;
         overflow:auto;
+        border-radius:1rem;
         &::-webkit-scrollbar{
           display:none;
         }
@@ -117,9 +144,6 @@ export default defineComponent({
           border-radius:10px;
           margin:0.5rem auto;
           cursor:pointer;
-          .isDone{
-            opacity:0.4;
-          }
           &__header{
             @extend %flexRowStyle;
             justify-content:space-between;
@@ -172,10 +196,21 @@ export default defineComponent({
             }
           }
         } 
+        .isDone {
+        opacity:0.7;
+        }
       }
     }
     &__rightSide {
       flex:0.6;
+      border:1px solid black;
+      padding:5px;
+      @extend %flexRowStyle;
+      height:100vh;
+      overflow: auto;
+      
     }
   }
+
+  
 </style>
