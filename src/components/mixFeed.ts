@@ -1,12 +1,26 @@
-/* eslint-disable */
+interface Item {
+  image?: string,
+  name?: string,
+  residents?: string[]
+  status?: string,
+  species?: string,
+  dimension?: string,
+  type?: string,
+  episode?: string,
+  air_date?: string,
+}
+
+interface ObjectItem {
+  attrs:Item,
+}
 
 const helper = {
   methods: {
-    completeCard(item:any) {
+    completeCard(item:Item):ObjectItem {
       if (item.image) {
         return {
           attrs: {
-            photo: item.image,
+            image: item.image,
             name: item.name,
             status: item.status,
             species: item.species,

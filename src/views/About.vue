@@ -132,7 +132,7 @@ import { defineComponent, ref, reactive } from 'vue';
 import { useRouter } from 'vue-router';
 import { nanoid } from 'nanoid';
 import { useStore } from 'vuex';
-import Itodo from '../utils/interfaces';
+import { Itodo } from '../utils/interfaces';
 import counterTodos from '../utils/helpersTodos';
 // No olvidar el Ref para los tipos de datos!!!!
 

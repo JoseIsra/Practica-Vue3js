@@ -53,10 +53,13 @@ export default defineComponent({
       align-items:center;
       justify-content: space-between;
       .a-header__button {
-        padding:5px;
-        background-color: transparent;
-        font-size:1rem;
+        padding:6px;
+        background-color: rgb(161, 33, 33);
+        color:white;
+        font-weight:bolder;
+        font-size:0.8rem;
         border-radius:10px;
+        cursor:pointer;
       }
     }
     &__dataUser{

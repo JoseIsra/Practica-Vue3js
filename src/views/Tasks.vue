@@ -71,7 +71,7 @@ import {
   defineComponent, computed, ref, Ref,
 } from 'vue';
 import { useStore } from 'vuex';
-import Itodo from '../utils/interfaces';
+import { Itodo } from '../utils/interfaces';
 import { 
   borderCard, titleColored, borderCardContainer,
   buttonStyle,

@@ -59,17 +59,18 @@
 
 <script lang="ts">
 import {
-  ref, defineComponent, onMounted, computed, 
+  ref, defineComponent, onMounted, computed, Ref,
 } from 'vue';
-import BlockCards from '@/components/BlockCards.vue';
 import { useStore } from 'vuex';
+import BlockCards from '@/components/BlockCards.vue';
+import { ApiResponse } from '../utils/interfaces';
 import getData from '../api/requests';
 
 export default defineComponent({
   name: 'Home',
   components: { BlockCards },
   setup() {
-    const result = ref(null);
+    const result:Ref<ApiResponse[]> = ref([]);
     const store = useStore();
     const search = async (term:string) => {
       const data = await getData(term);

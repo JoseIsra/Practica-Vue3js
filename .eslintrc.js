@@ -22,6 +22,7 @@ module.exports = {
     'prefer-default-export': 0,
     'no-irregular-whitespace': 0,
     'symbol-description': 0,
+    'camelcase':0,
   },
   overrides: [
     {
